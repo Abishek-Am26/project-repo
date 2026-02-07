@@ -5,7 +5,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     let email = document.getElementById("email").value;
     let message = document.getElementById("message").value;
 
-    fetch("https://portfolio-project-iyar.onrender.com/submit", {
+    fetch("https://project-repo-61np.onrender.com/", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ name, email, message })
