@@ -1,28 +1,44 @@
-document.getElementById("contactForm").addEventListener("submit", function(e){
+
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
     e.preventDefault();
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message").value;
+   
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const msgEl = document.getElementById("msg");
 
-    fetch("https://project-repo-61np.onrender.com/submit", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ name, email, message })
-    })
-    .then(res => res.json()) 
-    .then(data => {
-        if (data.success) {
-            document.getElementById("msg").innerText = data.message;
-            document.getElementById("msg").style.color = "#fff"; 
+   
+    if (!name || !email || !message) {
+        msgEl.innerText = "All fields are required!";
+        msgEl.style.color = "#ff5555";
+        return;
+    }
+
+    try {
+       
+        const response = await fetch("https://project-repo-61np.onrender.com/submit", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message })
+        });
+
+        
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+            msgEl.innerText = data.message || "Message sent successfully!";
+            msgEl.style.color = "#fff";
             document.getElementById("contactForm").reset();
         } else {
-            document.getElementById("msg").innerText = data.error || "Server error!";
-            document.getElementById("msg").style.color = "#ff5555";
+            msgEl.innerText = data.error || "Something went wrong!";
+            msgEl.style.color = "#ff5555";
         }
-    })
-    .catch(err => {
-        document.getElementById("msg").innerText = "Server error!";
-        document.getElementById("msg").style.color = "#ff5555";
-    });
+
+    } catch (err) {
+        
+        console.error("Fetch error:", err);
+        msgEl.innerText = "Server error! Please try again later.";
+        msgEl.style.color = "#ff5555";
+    }
 });
