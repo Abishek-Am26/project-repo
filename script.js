@@ -32,34 +32,34 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
-    } else {
-        navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
-    }
+    navbar.style.backgroundColor =
+        window.scrollY > 100
+            ? 'rgba(10, 10, 10, 0.98)'
+            : 'rgba(10, 10, 10, 0.95)';
 });
 
 
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener("submit", function(e){
+    contactForm.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        let name = document.getElementById("name").value;
-        let email = document.getElementById("email").value;
-        let message = document.getElementById("message").value;   
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
 
-        fetch("", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({ name, email, message })
-        })
-        .then(res => res.text())
+      fetch("https://project-repo-61np.onrender.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, message })
+})
+
+        .then(res => res.json())
         .then(data => {
-            document.getElementById("msg").innerText = data;
-            document.getElementById("contactForm").reset();
+            document.getElementById("msg").innerText = data.message;
+            contactForm.reset();
         })
-        .catch(err => {
+        .catch(() => {
             document.getElementById("msg").innerText = "Server error!";
         });
     });
@@ -72,9 +72,7 @@ const navLinks = document.querySelectorAll('.nav-link');
 window.addEventListener('scroll', () => {
     let current = '';
     sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
+        if (pageYOffset >= section.offsetTop - 200) {
             current = section.getAttribute('id');
         }
     });
@@ -97,15 +95,13 @@ const revealObserver = new IntersectionObserver((entries) => {
             entry.target.style.transform = 'translateY(0)';
         }
     });
-}, {
-    threshold: 0.1
-});
+}, { threshold: 0.1 });
 
-revealElements.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(20px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    revealObserver.observe(element);
+revealElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    revealObserver.observe(el);
 });
 
 
