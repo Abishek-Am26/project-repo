@@ -3,104 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abishek AM| MEAN Stack Learner</title>
+    <title>Abishek AM | MEAN Stack Learner</title>
+    
+   
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-<nav>
-    <h2 class="logo">mean.dev</h2>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+   
+    <nav>
+        <h2 class="logo">mean.dev</h2>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<section id="home" class="hero">
-    <h1>Hey, I'm <span>Abishek AM</span></h1>
-    <p>Student learning MEAN Stack | MongoDB • Express • Angular • Node.js</p>
-    <a href="#projects" class="btn">View Projects</a>
-    <div class="social-icons">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-    </div>
-</section>
+    
+    <section id="home" class="hero">
+        <h1>Hey, I'm <span>Abishek AM</span></h1>
+        <p>Student learning MEAN Stack | MongoDB • Express • Angular • Node.js</p>
+        <a href="#projects" class="btn">View Projects</a>
+    </section>
 
-<section id="about" class="section">
-    <h2>About Me</h2>
-    <p>
-        I am a student passionate about learning MEAN Stack development.
-        I enjoy exploring full-stack web technologies and building small
-        projects to enhance my skills. Currently, I am focusing on Angular
-        for frontend and Node.js, Express, and MongoDB for backend development.
-    </p>
-</section>
+   
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>
+            I am a student passionate about learning MEAN Stack development.
+            I enjoy exploring full-stack web technologies and building small
+            projects to enhance my skills. Currently, I am focusing on Angular
+            for frontend and Node.js, Express, and MongoDB for backend development.
+        </p>
+    </section>
 
-<section id="skills" class="section">
-    <h2>Skills</h2>
-    <div class="skill-grid">
-        <div class="skill">HTML5</div>
-        <div class="skill">CSS3</div>
-        <div class="skill">JavaScript (ES6+)</div>
-        <div class="skill">TypeScript</div>
-        <div class="skill">Angular</div>
-        <div class="skill">Node.js</div>
-        <div class="skill">Express.js</div>
-        <div class="skill">MongoDB</div>
-        <div class="skill">REST APIs</div>
-        <div class="skill">Git & GitHub</div>
-    </div>
-</section>
-
-<section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="project-grid">
-        <div class="project-card">
-            <h3>MEAN Stack Portfolio</h3>
-            <p>
-                A portfolio website project developed to practice Angular frontend,
-                Node.js and Express backend services, and MongoDB database integration.
-            </p>
+  
+    <section id="skills" class="section">
+        <h2>Skills</h2>
+        <div class="skill-grid">
+            <div class="skill">HTML5</div>
+            <div class="skill">CSS3</div>
+            <div class="skill">JavaScript (ES6+)</div>
+            <div class="skill">TypeScript</div>
+            <div class="skill">Angular</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">Express.js</div>
+            <div class="skill">MongoDB</div>
+            <div class="skill">REST APIs</div>
+            <div class="skill">Git & GitHub</div>
         </div>
+    </section>
 
-        <div class="project-card">
-            <h3>User Management System</h3>
-            <p>
-                A CRUD-based user management application built as a learning project
-                with REST APIs, basic authentication, and MongoDB.
-            </p>
+    <section id="projects" class="section">
+        <h2>Projects</h2>
+        <div class="project-grid">
+
+            <div class="project-card">
+                <h3>Blog Management Platform</h3>
+                <p>
+                    A simple blogging platform where users can create, edit, delete, and view posts.
+                    Built using Angular frontend, Node.js & Express backend, and MongoDB for storing posts.
+                    Features user authentication and a rich text editor.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>Movie Recommendation App</h3>
+                <p>
+                    A web app that allows users to search movies, view details, and save favorites.
+                    Uses Angular for frontend, Node.js + Express for backend, and MongoDB for storing favorites.
+                    Integrates with TMDb or OMDb API for real-time movie data.
+                </p>
+            </div>
+
+            <div class="project-card">
+                <h3>Event Booking System</h3>
+                <p>
+                    A small event booking application to book seats for workshops or concerts.
+                    Developed with Angular, Node.js, Express, and MongoDB.
+                    Includes event listings, seat availability, and admin panel to manage events.
+                </p>
+            </div>
+
         </div>
+    </section>
 
-        <div class="project-card">
-            <h3>Task Management Application</h3>
-            <p>
-                A small task tracking application using Angular frontend and Node.js backend
-                APIs to improve my MEAN Stack skills.
-            </p>
-        </div>
-    </div>
-</section>
+    <section id="contact" class="section">
+        <h2>Contact Me</h2>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <p id="msg"></p>
+    </section>
 
-<section id="contact" class="section">
-    <h2>Contact Me</h2>
-    <form id="contactForm">
-        <input type="text" id="name" placeholder="Your Name" required>
-        <input type="email" id="email" placeholder="Your Email" required>
-        <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-    <p id="msg"></p>
-</section>
+    
+    <footer>
+        <p>© 2025 Abishek AM</p>
+    </footer>
 
-<footer>
-    <p>© 2025 Abishek AM</p>
-</footer>
-
-<script src="script.js"></script>
+    
+    <script src="script.js"></script>
 </body>
 </html>
