@@ -17,7 +17,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
     try {
        
-        const response = await fetch("https://project-repo-6jhg.onrender.com/submit", {
+        const response = await fetch("https://project-repo-c22a.onrender.com/submit", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name, email, message })
